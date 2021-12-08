@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link, BrowserRouter, Routes, Route, Switch} from 'react-router-dom';
-import ContactUS from './Component/ContactUS';
-import LandingPage from './Component/LandingPage';
-import Products from './Component/Products/Products';
+
 
 import NotFound from './Component/NotFound';
 import NavBar from './Component/NavBar';
@@ -14,22 +12,15 @@ import SignUp from './Component/Auth/signup';
 function App() {
   return (
     <div >
-    
       
       <Routes>
-      <Route path="/" element={<Login />}/>
-      <Route path="/NavBar" element={<NavBar />}/>
+      <Route path="/" element={<Login />}>
+      </Route>
       <Route path="/signup" element={<SignUp />}/>
       <Route path="*" element={<NotFound />}/>
+      <Route  path="/Home" element={<NavBar />}/>
 
-      
-
-       
-      
-      
     </Routes>
-
-   
     </div>
   );
 }

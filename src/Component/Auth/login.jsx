@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useNavigate} from "react-router-dom";
+import {Routes, Route , useNavigate} from "react-router-dom";
+import NavBar from '../NavBar';
 
 function Copyright(props) {
   return (
@@ -30,6 +31,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+
     let navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -89,8 +91,11 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              
               onClick={()=>{
-                 navigate("/Navbar");
+                console.log("Click");
+                navigate("/Home");
+
               }}
             >
               Sign In
@@ -114,5 +119,7 @@ export default function SignIn() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    
   );
+ 
 }
