@@ -30,7 +30,7 @@ const ProductForm = () => {
           console.log(res.data);
           toast.success("Product Submitted Successfully");
           setSubmitting(false);
-          navigate("/");
+          navigate("/Products");
         });
   };
   const getData = () => {
@@ -45,56 +45,21 @@ const ProductForm = () => {
   console.log(product);
   return (
     <div>
-      <h3> Product</h3>
+      <h3> Recepies</h3>
 
       <TextField
         disabled={submitting}
         variant="standard"
         fullWidth
-        label="Product Name"
+        label="Recepie Name"
         value={product.name}
         onChange={(e) => {
           //   console.log(e.target.value);
-          setProduct({ ...product, name: e.target.value });
+          setProduct({ ...product, title: e.target.value });
         }}
       />
-      <TextField
-        disabled={submitting}
-        fullWidth
-        variant="standard"
-        label="Price"
-        value={product.price}
-        onChange={(e) => {
-          //   console.log(e.target.value);
-          setProduct({ ...product, price: e.target.value });
-        }}
-      />
-      <TextField
-        disabled={submitting}
-        fullWidth
-        variant="standard"
-        label="Color"
-        select
-        value={product.color}
-        onChange={(e) => {
-          //   console.log(e.target.value);
-          setProduct({ ...product, color: e.target.value });
-        }}
-      >
-        <MenuItem value={"red"}>Red</MenuItem>
-        <MenuItem value={"blue"}>Blue</MenuItem>
-      </TextField>
-      <TextField
-        disabled={submitting}
-        fullWidth
-        variant="standard"
-        label="Department"
-        value={product.department}
-        onChange={(e) => {
-          //   console.log(e.target.value);
-          setProduct({ ...product, department: e.target.value });
-        }}
-      />
+   
+   
       <TextField
         disabled={submitting}
         fullWidth
@@ -105,7 +70,7 @@ const ProductForm = () => {
         value={product.description}
         onChange={(e) => {
           //   console.log(e.target.value);
-          setProduct({ ...product, description: e.target.value });
+          setProduct({ ...product, body: e.target.value });
         }}
       />
       <br />

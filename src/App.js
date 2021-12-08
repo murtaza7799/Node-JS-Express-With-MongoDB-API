@@ -7,26 +7,28 @@ import Products from './Component/Products/Products';
 import NotFound from './Component/NotFound';
 import NavBar from './Component/NavBar';
 import ProductForm from './Component/Products/ProductForm';
+import ProductDetails from './Component/ProductDetails';
+import Login from './Component/Auth/login';
+import SignUp from './Component/Auth/signup';
 
 function App() {
   return (
     <div >
-    <BrowserRouter>
-    <NavBar/>
-      <Routes>
-       
-       <Route path="/LandingPage" element={<LandingPage/>}/>
-       <Route path="/Products" element={<Products />}/>
-       <Route path="/ProductForm" element={<ProductForm />}/>
-       
-       <Route path="/ContactUs" element={<ContactUS />}/>
+    
       
+      <Routes>
+      <Route path="/" element={<Login />}/>
+      <Route path="/NavBar" element={<NavBar />}/>
+      <Route path="/signup" element={<SignUp />}/>
+
+      
+
        
       
       
     </Routes>
 
-    </BrowserRouter>
+   
     </div>
   );
 }

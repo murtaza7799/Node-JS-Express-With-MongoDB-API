@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import SingleProduct from "./SingleProduct";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { Button } from "@mui/material";
 const Products = () => {
-  
+  console.log("Products");
+
+
+  let navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const getData = () => {
@@ -22,7 +25,12 @@ const Products = () => {
   
 
   return (
+   
     <div>
+       <Button id="mybtn" variant="contained" onClick={()=>{
+          navigate("/ProductForm")
+
+           }}>Add Recepies</Button>
       {loading && <p>Loading...</p>}
       {products.length == 0 && !loading && (
         <p>Sorry We have No Products to Show</p>

@@ -21,13 +21,16 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate, Route,Routes} from 'react-router-dom';
 import Products from './Products/Products';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import LandingPage from './LandingPage';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import ProductForm from './Products/ProductForm';
+import ProductDetails from './ProductDetails';
+import ContactUS from './ContactUS';
+import Login from './Auth/login';
 const drawerWidth = 240;
 
 
@@ -98,6 +101,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function NavBar(props) {
+  let navigate = useNavigate();
   
   const [product1, setProduct1] = React.useState(true);
   const [product, setProduct] = React.useState(false);
@@ -139,7 +143,11 @@ export default function NavBar(props) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
              Products
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={() => {
+                    console.log("login")
+                    navigate("/login");
+
+          }}>Login</Button>
           <Button color="inherit">Sign Up</Button>
            
 
@@ -154,9 +162,9 @@ export default function NavBar(props) {
         <Divider />
         <List>
         <ListItemButton onClick={()=>{
-          setProduct(false);
-          setProduct1(true);
-          setRecepie(false)
+          //home
+          navigate("/")
+
 
         }}>
         <ListItemIcon>
@@ -165,9 +173,9 @@ export default function NavBar(props) {
         <ListItemText primary="Home" />
       </ListItemButton>
       <ListItemButton  onClick={()=>{
-          setProduct(true);
-          setProduct1(false);
-          setRecepie(false);
+        //recepie
+         navigate("/Products")
+         
          
 
         } }>
@@ -181,26 +189,32 @@ export default function NavBar(props) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Button variant="contained" onClick={()=>{
-          setRecepie(true);
-           setProduct(false);
-           setProduct1(false);
-
-           }}>Add Recepies</Button>
+        
+       
+        
         <Typography >
-          <div component={Link}>
+          <div>
           
-          {
-          product == true ? <Products/> :  null
-           }
-          {
-          product1 == true ? <LandingPage/> :   null
-           }
-          {
-          recepie == true ? <div component={Link} to="./ProductForm"> Test</div> :  null
-           }
+          
            
           </div>
+          
+      <Routes>
+        
+       <Route path="/" element={<LandingPage />}/>
+       <Route path="/Products" element={<Products />}/>
+       <Route path="/login" element={<Login />}/>
+       <Route path="/ProductForm" element={<ProductForm />}/>
+       <Route path="/products/create" element={<ProductForm />} />
+          <Route path="/products/edit/:id" element={<ProductForm />} />
+          <Route path="/products/details/:id" element={<ProductDetails />} />
+       
+       <Route path="/ContactUs" element={<ContactUS />}/>
+      
+       
+      
+      
+    </Routes>
 
           
           
