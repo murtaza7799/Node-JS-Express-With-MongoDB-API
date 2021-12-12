@@ -21,7 +21,7 @@ const ProductForm = () => {
           console.log(res.data);
           toast.success("Product Submitted Successfully");
           setSubmitting(false);
-          navigate("/");
+          navigate("/Products");
         });
     else
       axios
@@ -45,14 +45,14 @@ const ProductForm = () => {
   console.log(product);
   return (
     <div>
-      <h3> Recepies</h3>
+      <h3>{id ? "Edit" : "Create"} Recepie</h3>
 
       <TextField
         disabled={submitting}
         variant="standard"
         fullWidth
         label="Recepie Name"
-        value={product.name}
+        value={product.title}
         onChange={(e) => {
           //   console.log(e.target.value);
           setProduct({ ...product, title: e.target.value });
@@ -67,7 +67,7 @@ const ProductForm = () => {
         rows={4}
         variant="standard"
         label="Description"
-        value={product.description}
+        value={product.body}
         onChange={(e) => {
           //   console.log(e.target.value);
           setProduct({ ...product, body: e.target.value });

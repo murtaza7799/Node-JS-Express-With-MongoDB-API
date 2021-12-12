@@ -24,7 +24,9 @@ const SingleProduct = (props) => {
          variant="outlined"
          size="medium"
          color="secondary"
-         
+         onClick={()=>{
+           navigate("/products/edit/" + props.product._id);
+        }}
        >Edit   
        </Button>
        
@@ -40,12 +42,12 @@ const SingleProduct = (props) => {
              )
              .then((res) => {
                console.log("deleted");
-               
-               navigate("/");
-               
+               navigate("/")
+               navigate("/Products")
 
              });
          }}
+        
        >
          Delete
        </Button>
