@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import React from "react";
-import { Link , useNavigate} from "react-router-dom";
-import Typography from '@mui/material/Typography';
+import { Link , useNavigate} from "react-router-dom"
+
+
 import axios from "axios";
 const SingleProduct = (props) => {
   let navigate = useNavigate();

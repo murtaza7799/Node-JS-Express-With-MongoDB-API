@@ -103,6 +103,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function NavBar(props) {
   let navigate = useNavigate();
   
+  
   const [product1, setProduct1] = React.useState(true);
   const [product, setProduct] = React.useState(false);
   const [recepie, setRecepie] = React.useState(false);

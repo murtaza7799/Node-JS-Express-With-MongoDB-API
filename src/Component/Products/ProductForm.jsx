@@ -1,7 +1,7 @@
-import { Button, MenuItem, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import React from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router";
 const ProductForm = () => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const ProductForm = () => {
           setProduct(res.data);
         });
   };
-  React.useEffect(getData, []);
+  React.useEffect(getData, [id, params.id]);
   console.log(product);
   return (
     <div>
