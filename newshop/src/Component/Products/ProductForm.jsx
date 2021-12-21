@@ -8,8 +8,8 @@ const ProductForm = () => {
   const params = useParams();
   const id = params.id;
   const [product, setProduct] = React.useState({
-    title: " ",
-    body: "",
+    name: " ",
+    
   });
   const [submitting, setSubmitting] = React.useState(false);
   const submitForm = () => {
@@ -25,7 +25,7 @@ const ProductForm = () => {
         });
     else
       axios
-        .post("https://usman-recipes.herokuapp.com/api/recipes", product)
+        .post("http://localhost:5000/api/products/", product)
         .then((res) => {
           console.log(res.data);
           toast.success("Product Submitted Successfully");
@@ -52,10 +52,10 @@ const ProductForm = () => {
         variant="standard"
         fullWidth
         label="Recepie Name"
-        value={product.title}
+        value={product.name}
         onChange={(e) => {
           //   console.log(e.target.value);
-          setProduct({ ...product, title: e.target.value });
+          setProduct({ ...product, name: e.target.value });
         }}
       />
    

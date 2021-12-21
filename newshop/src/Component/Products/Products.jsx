@@ -13,7 +13,7 @@ const Products = () => {
   const getData = () => {
     setLoading(true);
     axios
-      .get("https://usman-recipes.herokuapp.com/api/recipes")
+      .get("http://localhost:5000/api/products")
       .then((res) => {
         // setProducts([]);
         setProducts(res.data);

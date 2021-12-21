@@ -12,7 +12,7 @@ const SingleProduct = (props) => {
       
       <h3>
         <Link to={"/products/details/" + props.product._id}>
-          {props.product.title}
+          {props.product.name}
         </Link>
       </h3>
       <div >

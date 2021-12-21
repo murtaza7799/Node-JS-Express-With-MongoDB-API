@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a href="#" class="navbar-brand">Brand<b>Name</b></a>  		
+	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+		<div class="navbar-nav">
+			<a href="/" class="nav-item nav-link">Home</a>
+			<a href="#" class="nav-item nav-link">Products</a>			
+			<a href="#" class="nav-item nav-link">About US</a>
+			<a href="#" class="nav-item nav-link">Shoping Cart</a>
+			<a href="/newshop" class="nav-item nav-link">Contact</a>
+        </div>
+		<form class="navbar-form form-inline search-form">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search...">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+				</span>
+			</div>
+		</form>
+		<div class="navbar-nav ml-auto">
+      <a href="/signup" class="nav-item nav-link">Register</a>
+			<div class="nav-item dropdown login-dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle"><i class="fa fa-user-o"></i> Login</a>
+				<div class="dropdown-menu">					
+                    <form class="form-inline login-form" action="/examples/actions/confirmation.php" method="post">
+                        <div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<span class="fa fa-user"></span>
+								</span>                    
+							</div>
+                            <input type="text" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="fa fa-lock"></i>
+								</span>                    
+							</div>
+                            <input type="text" class="form-control" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>			
+        </div>
+	</div>
+</nav>
