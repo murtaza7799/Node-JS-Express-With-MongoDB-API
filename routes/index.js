@@ -1,4 +1,3 @@
-
 var express = require("express");
 var router = express.Router();
 var Product = require("../models/Product");
@@ -12,6 +11,9 @@ router.get("/", async function (req, res, next) {
     pagetitle: "Awesome Products",
     products,
   });
+});
+router.get("/signup", function (req, res, next) {
+  return res.render("site/login");
 });
 
 
