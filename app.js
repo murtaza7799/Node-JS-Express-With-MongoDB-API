@@ -8,13 +8,23 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 // assign routes
 var indexRouter = require('./routes/index');
-
+//
 var bodyParser = require("body-parser");
-
-
+// for controlling session from cookies
+var session = require("express-session");
+var config = require("config");
 
 // use express
 var app = express();
+
+app.use(
+  session({
+    secret: config.get("sessionSecret"),
+    cookie: { maxAge: 60000 },
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 const cors = require('cors');
 const corsOptions ={

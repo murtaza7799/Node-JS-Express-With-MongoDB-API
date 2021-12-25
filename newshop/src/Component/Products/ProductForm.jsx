@@ -8,8 +8,8 @@ const ProductForm = () => {
   const params = useParams();
   const id = params.id;
   const [product, setProduct] = React.useState({
-    name: " ",
-    
+    title: " ",
+    body:" "
   });
   const [submitting, setSubmitting] = React.useState(false);
   const submitForm = () => {
@@ -52,10 +52,10 @@ const ProductForm = () => {
         variant="standard"
         fullWidth
         label="Recepie Name"
-        value={product.name}
+        value={product.title}
         onChange={(e) => {
           //   console.log(e.target.value);
-          setProduct({ ...product, name: e.target.value });
+          setProduct({ ...product,title: e.target.value });
         }}
       />
    
