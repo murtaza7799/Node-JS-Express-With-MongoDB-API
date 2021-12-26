@@ -9,12 +9,10 @@ router.get("/:id", async function (req, res, next) {
 });
 router.get("/", async function (req, res, next) {
   let products = await Product.find();
-
   return res.send(products);
 });
 router.post("/", async function (req, res, next) {
   let product = new Product(req.body);
-  
   await product.save();
   res.send(product);
 });

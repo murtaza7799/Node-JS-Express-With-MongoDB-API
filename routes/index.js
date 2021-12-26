@@ -8,7 +8,6 @@ const mongoose = require('mongoose');
 
 router.get("/", async function (req, res, next) {
   let products = await Product.find();
-  
   return res.render("site/homepage", {
     pagetitle: "Awesome Products",
     products,
@@ -16,7 +15,6 @@ router.get("/", async function (req, res, next) {
 });
 router.get("/products", async function (req, res, next) {
   let products = await Product.find();
-  console.log(products[1].name);
   return res.render("site/products", {
     pagetitle: "Awesome Products",
     products,
