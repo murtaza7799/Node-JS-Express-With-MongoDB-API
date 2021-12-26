@@ -8,6 +8,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 // assign routes
 var indexRouter = require('./routes/index');
+var sessionAuth=require('./middleWare/checkSessionAuth')
+var checkSessionAuth = require('./middleWare/checkSessionAuth')
+var apiAuth = require('./middleWare/apiAuth')
 //
 var bodyParser = require("body-parser");
 // for controlling session from cookies
@@ -58,11 +61,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/public/products", require("./routes/api/public/products"));
 app.use("/api/products", require("./routes/api/products"));
+app.use("/myaccount",sessionAuth, checkSessionAuth);
 //for routes
 app.use('/', indexRouter);
 app.get('', (req, res) => {
   res.render('index', { title: 'Home Page'})
 })
+//load react  app
+app.get("/newshop", async (req, res) => {
+  res.sendFile(path.join(__dirname, "newshop", "build", "index.html"));
+});
+app.get("/newshop/*", async (req, res) => {
+  res.sendFile(path.join(__dirname, "newshop", "build", "index.html"));
+});
+app.use(express.static(path.join(__dirname, "newshop", "build")));
 
 
 // catch 404 and forward to error handler

@@ -1,0 +1,39 @@
+
+<br/>
+<% for(var i=0;i<products.length;i++) {%>
+    <br/>
+    <div>
+    <div class="container bcontent">
+        <div class="card border-primary" >
+            <div class="row no-gutters">
+                <div class="col-sm-3">
+                    <img class="img-thumbnail  " src="./images/tech1.jpg" alt="">
+                </div>
+                <div class="col-sm-6">
+                    <div class="card-body">
+                        <h3 class="card-title"><%=products[i].name  %> </h3>
+                        <p class="card-text"><%=products[i].discription  %> </p>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="width: 18rem;">
+                <div class=" " >
+                    <div class="card-body">
+                      <h5 class="card-title">Price </h5>
+                      <h6 class="card-title ">Color </h6>
+                      <p class="card-title">department </p>
+                      
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+      <br/>
+      <hr/>
+      
+  <% } %>
+
+
