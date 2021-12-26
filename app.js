@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 // middleware that use  to log Http req  and errors
 var logger = require('morgan');
 // assign routes
+var protectedRouter = require("./routes/protected");
 var indexRouter = require('./routes/index');
 var sessionAuth=require('./middleWare/checkSessionAuth')
 var checkSessionAuth = require('./middleWare/checkSessionAuth')
@@ -59,9 +60,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 app.use("/api/public/products", require("./routes/api/public/products"));
 app.use("/api/products", require("./routes/api/products"));
-app.use("/myaccount",sessionAuth, checkSessionAuth);
+app.use("/myaccount", sessionAuth, checkSessionAuth, protectedRouter);
+
+
+
 //for routes
 app.use('/', indexRouter);
 app.get('', (req, res) => {
